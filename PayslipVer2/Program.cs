@@ -6,6 +6,7 @@ namespace PayslipVer2
     {
         static void Main(string[] args)
         {
+            var c = string.Join("son", "chaeyoung");
             Console.WriteLine("Hello World!");
         }
     }
