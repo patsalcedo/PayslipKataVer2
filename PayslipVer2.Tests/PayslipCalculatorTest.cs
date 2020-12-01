@@ -3,7 +3,7 @@ using Xunit;
 
 namespace PayslipVer2.Tests
 {
-    public class UnitTest1
+    public class PayslipCalculatorTest
     {
         [Theory]
         [InlineData(60050, 5004)]
