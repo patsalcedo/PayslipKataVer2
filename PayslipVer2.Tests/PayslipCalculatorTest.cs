@@ -5,16 +5,20 @@ namespace PayslipVer2.Tests
 {
     public class PayslipCalculatorTest
     {
+        private readonly PayslipCalculator _payslipCalculator;
+        
+        public PayslipCalculatorTest()
+        {
+            _payslipCalculator = new PayslipCalculator();
+        }
+        
         [Theory]
         [InlineData(60050, 5004)]
         [InlineData(120000, 10000)]
         public void Gross_Income_Calculation_Test(int annualSalary, int expectedOutput)
         {
-            // GIVEN
-            var payslipCalculator = new PayslipCalculator();
-
             // WHEN
-            var actual = payslipCalculator.CalculateGrossIncome(annualSalary);
+            var actual = _payslipCalculator.CalculateGrossIncome(annualSalary);
 
             // THEN
             Assert.Equal(expectedOutput, actual);
@@ -23,11 +27,8 @@ namespace PayslipVer2.Tests
         [Fact]
         public void Income_Tax_Calculation_Tax()
         {
-            // GIVEN
-            var payslipCalculator = new PayslipCalculator();
-            
             // WHEN
-            var actual = payslipCalculator
+            var actual = _payslipCalculator
                 .CalculateIncomeTax(3572, 60050, 37000, 0.325);
 
             // THEN
@@ -39,11 +40,8 @@ namespace PayslipVer2.Tests
         [InlineData(10000, 2669, 7331)]
         public void Net_Income_Calculation_Test(int grossIncome, int incomeTax, int expectedOutcome)
         {
-            // GIVEN
-            var payslipCalculator = new PayslipCalculator();
-
             // WHEN
-            var actual = payslipCalculator.CalculateNetIncome(grossIncome,incomeTax);
+            var actual = _payslipCalculator.CalculateNetIncome(grossIncome,incomeTax);
 
             // THEN
             Assert.Equal(expectedOutcome, actual);
@@ -54,14 +52,21 @@ namespace PayslipVer2.Tests
         [InlineData(10000, 10, 1000)]
         public void Super_Calculation_Test(int grossIncome, int superRate, int expectedOutcome)
         {
-            // GIVEN
-            var payslipCalculator = new PayslipCalculator();
-
             // WHEN
-            var actual = payslipCalculator.CalculateSuper(grossIncome,superRate);
+            var actual = _payslipCalculator.CalculateSuper(grossIncome,superRate);
 
             // THEN
             Assert.Equal(expectedOutcome, actual);
+        }
+
+        [Fact]
+        public void Join_First_To_Last_Name()
+        {
+            // WHEN
+            var actual = _payslipCalculator.JoinFirstAndLastNames("John", "Doe");
+            
+            // THEN
+            Assert.Equal("John Doe", actual);
         }
         
         // [Fact]

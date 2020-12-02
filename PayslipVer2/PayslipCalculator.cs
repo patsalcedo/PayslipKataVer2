@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace PayslipVer2
 {
@@ -14,9 +15,6 @@ namespace PayslipVer2
 
         public int CalculateIncomeTax(int taxOnIncome, int annualSalary, int lowerTaxableIncomeBracket, double taxExtra)
         {
-            // might have to have an IncomeTax object as parameter containing taxOnIncome, the tax brackets and taxExtra
-            // need better name for taxExtra
-            
             var incomeTax = (int) Math.Round((taxOnIncome + (annualSalary - lowerTaxableIncomeBracket) * taxExtra) / AnnualMonths);
             return incomeTax;
         }
@@ -30,6 +28,11 @@ namespace PayslipVer2
         {
             var super = (int) Math.Round(grossIncome * superRate * 0.01);
             return super;
+        }
+
+        public string JoinFirstAndLastNames(string firstName, string lastName)
+        {
+            return firstName + " " + lastName;
         }
     }
 }

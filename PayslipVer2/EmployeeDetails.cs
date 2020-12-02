@@ -4,5 +4,8 @@ namespace PayslipVer2.Tests
     {
         public int AnnualSalary;
         public int SuperRate;
+        public string FirstName;
+        public string LastName;
+        
     }
 }
