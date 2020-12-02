@@ -8,6 +8,5 @@ namespace PayslipVer2
         public int IncomeTax;
         public int NetIncome;
         public int Super;
-
     }
 }

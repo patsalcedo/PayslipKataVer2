@@ -5,7 +5,7 @@ namespace PayslipVer2
         public int TaxOnIncome;
         public int LowerTaxableIncomeBracket;
         public double TaxExtra;
-        private int _annualSalary;
+        private readonly int _annualSalary;
 
         public Tax(int annualSalary)
         {

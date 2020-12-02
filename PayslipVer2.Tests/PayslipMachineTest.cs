@@ -53,6 +53,5 @@ namespace PayslipVer2.Tests
             
             Assert.Equal(4082, inputOutputDouble.Payslip.NetIncome);
         }
-
     }
 }
