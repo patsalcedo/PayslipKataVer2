@@ -1,4 +1,3 @@
-using System;
 using Xunit;
 
 namespace PayslipVer2.Tests
@@ -12,6 +11,27 @@ namespace PayslipVer2.Tests
             _payslipCalculator = new PayslipCalculator();
         }
         
+        [Fact]
+        public void Join_First_To_Last_Name()
+        {
+            // WHEN
+            var actual = _payslipCalculator.JoinFirstAndLastNames("John", "Doe");
+            
+            // THEN
+            Assert.Equal("John Doe", actual);
+        }
+        
+        [Fact]
+        public void Pay_Period_Calculation_Test()
+        {
+            // WHEN
+            var actual = _payslipCalculator
+                .CalculatePayPeriod("1 April","30 April");
+
+            // THEN                                                  
+            Assert.Equal("1 April - 30 April", actual);
+        }
+
         [Theory]
         [InlineData(60050, 5004)]
         [InlineData(120000, 10000)]
@@ -59,22 +79,6 @@ namespace PayslipVer2.Tests
             Assert.Equal(expectedOutcome, actual);
         }
 
-        [Fact]
-        public void Join_First_To_Last_Name()
-        {
-            // WHEN
-            var actual = _payslipCalculator.JoinFirstAndLastNames("John", "Doe");
-            
-            // THEN
-            Assert.Equal("John Doe", actual);
-        }
-        
-        // [Fact]
-        // public void Pay_Period_Calculation_Test()
-        // {
-        //     
-        // }
-        
         // [Fact]
         // public void Throw_Exception_For_Negatives()
         // {
