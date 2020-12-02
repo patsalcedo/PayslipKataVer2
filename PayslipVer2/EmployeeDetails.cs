@@ -1,11 +1,10 @@
-namespace PayslipVer2.Tests
+namespace PayslipVer2
 {
     public class EmployeeDetails
     {
-        public int AnnualSalary;
-        public int SuperRate;
         public string FirstName;
         public string LastName;
-        
+        public int AnnualSalary;
+        public int SuperRate;
     }
 }

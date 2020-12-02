@@ -6,7 +6,9 @@ namespace PayslipVer2
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var consoleInputOutput = new ConsoleInputOutput();
+            var payslipMachine = new PayslipMachine(consoleInputOutput);
+            payslipMachine.GeneratePayslip();
         }
     }
 }

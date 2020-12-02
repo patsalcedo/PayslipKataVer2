@@ -1,3 +1,5 @@
+using System;
+
 namespace PayslipVer2.Tests
 {
     public class InputOutputDouble : IInputOutput

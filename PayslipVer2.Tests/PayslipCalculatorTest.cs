@@ -25,11 +25,11 @@ namespace PayslipVer2.Tests
         }
 
         [Fact]
-        public void Income_Tax_Calculation_Tax()
+        public void Income_Tax_Calculation_Test()
         {
             // WHEN
             var actual = _payslipCalculator
-                .CalculateIncomeTax(3572, 60050, 37000, 0.325);
+                .CalculateIncomeTax(60050);
 
             // THEN
             Assert.Equal(922, actual);

@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace PayslipVer2
 {
@@ -12,10 +11,13 @@ namespace PayslipVer2
             var sum = (int) Math.Round(annualSalary / AnnualMonths);
             return sum;
         }
-
-        public int CalculateIncomeTax(int taxOnIncome, int annualSalary, int lowerTaxableIncomeBracket, double taxExtra)
+        
+        public int CalculateIncomeTax(int annualSalary)
         {
-            var incomeTax = (int) Math.Round((taxOnIncome + (annualSalary - lowerTaxableIncomeBracket) * taxExtra) / AnnualMonths);
+            var tax = new Tax(annualSalary);
+            tax.DetermineTaxApplicableFromAnnualSalary();
+            
+            var incomeTax = (int) Math.Round((tax.TaxOnIncome + (annualSalary - tax.LowerTaxableIncomeBracket) * tax.TaxExtra) / AnnualMonths);
             return incomeTax;
         }
 

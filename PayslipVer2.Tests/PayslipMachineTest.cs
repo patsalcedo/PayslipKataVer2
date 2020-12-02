@@ -5,7 +5,7 @@ namespace PayslipVer2.Tests
     public class PayslipMachineTest
     {
         [Fact]
-        public void Get_GrossIncome_From_Payslip()
+        public void Get_Gross_Income_From_Payslip()
         {
             var inputOutputDouble = new InputOutputDouble(new EmployeeDetails(){AnnualSalary = 60050});
             var payslipMachine = new PayslipMachine(inputOutputDouble);

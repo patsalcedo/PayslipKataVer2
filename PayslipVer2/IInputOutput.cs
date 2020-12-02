@@ -1,4 +1,4 @@
-namespace PayslipVer2.Tests
+namespace PayslipVer2
 {
     public interface IInputOutput
     {
