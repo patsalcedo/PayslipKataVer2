@@ -7,8 +7,10 @@ namespace PayslipVer2
         static void Main(string[] args)
         {
             var consoleInputOutput = new ConsoleInputOutput();
+            consoleInputOutput.InitialGreeting();
             var payslipMachine = new PayslipMachine(consoleInputOutput);
             payslipMachine.GeneratePayslip();
+            consoleInputOutput.FarewellMessage();
         }
     }
 }

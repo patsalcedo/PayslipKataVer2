@@ -13,6 +13,11 @@ namespace PayslipVer2.Tests
 
         public Payslip Payslip { get; private set; }
 
+        public void InitialGreeting()
+        {
+            Console.WriteLine("Welcome to the payslip generator!");
+        }
+
         public EmployeeDetails GetInputDetails()
         {
             return _employeeDetails;
@@ -21,6 +26,11 @@ namespace PayslipVer2.Tests
         public void OutputPayslip(Payslip payslip)
         {
             Payslip = payslip;
+        }
+
+        public void FarewellMessage()
+        {
+            Console.WriteLine("Thank you for using MYOB!");
         }
     }
 }

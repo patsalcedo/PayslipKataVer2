@@ -4,6 +4,11 @@ namespace PayslipVer2
 {
     public class ConsoleInputOutput : IInputOutput
     {
+        public void InitialGreeting()
+        {
+            Console.WriteLine("Welcome to the payslip generator!\n");
+        }
+
         public EmployeeDetails GetInputDetails()
         {
             Console.Write("Please enter your name: ");
@@ -22,11 +27,17 @@ namespace PayslipVer2
 
         public void OutputPayslip(Payslip payslip)
         {
+            Console.WriteLine("\nYour payslip has been generated:\n");
             Console.WriteLine($"Name: {payslip.FullName}");
             Console.WriteLine($"Gross Income: {payslip.GrossIncome}");
             Console.WriteLine($"Income Tax: {payslip.IncomeTax}");
             Console.WriteLine($"Net Income: {payslip.NetIncome}");
             Console.WriteLine($"Super: {payslip.Super}");
+        }
+
+        public void FarewellMessage()
+        {
+            Console.WriteLine("\nThank you for using MYOB!");
         }
     }
 }
