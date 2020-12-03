@@ -12,47 +12,24 @@ namespace PayslipVer2
         public EmployeeDetails GetInputDetails()
         {
             Console.Write("Please enter your first name: ");
-            var firstName = CheckInputIsNotNull();
+            var firstName = InputValidation.CheckInputIsNotNull();
             Console.Write("Please enter your surname: ");
-            var lastName = CheckInputIsNotNull();
+            var lastName = InputValidation.CheckInputIsNotNull();
             
             Console.Write("Please enter your annual salary: ");
-            var annualSalary = CheckIntInput();
+            var annualSalary = InputValidation.CheckIntInput();
             
             Console.Write("Please enter your super: ");
-            var superRate = CheckIntInput();
+            var superRate = InputValidation.CheckIntInput();
             
             Console.Write("Please enter your payment start date: ");
-            var startDate = CheckInputIsNotNull();
+            var startDate = InputValidation.CheckInputIsNotNull();
             Console.Write("Please enter your payment end date: ");
-            var endDate = CheckInputIsNotNull();
+            var endDate = InputValidation.CheckInputIsNotNull();
 
             // var payPeriodDates = DateValidation.CheckDateInput(startDate, endDate);
             
             return new EmployeeDetails(firstName, lastName, annualSalary, superRate, startDate, endDate);
-        }
-
-        private static int CheckIntInput()
-        {
-            var value = CheckInputIsNotNull();
-            int valueInt;
-            while (!int.TryParse(value, out valueInt))
-            {
-                Console.Write("Please input a valid integer: ");
-                value = Console.ReadLine();
-            }
-            return valueInt;
-        }
-        
-        private static string CheckInputIsNotNull()
-        {
-            var value = Console.ReadLine();
-            while (string.IsNullOrEmpty(value) || string.IsNullOrWhiteSpace(value))
-            {
-                Console.Write("Please input a value: ");
-                value = Console.ReadLine();
-            }
-            return value;
         }
 
         public void OutputPayslip(Payslip payslip)
