@@ -22,7 +22,7 @@ namespace PayslipVer2
             var superString = Console.ReadLine();
             int.TryParse(superString, out var superRate);
             
-            return new EmployeeDetails(){FirstName = firstName, LastName = lastName, AnnualSalary = annualSalary, SuperRate = superRate};
+            return new EmployeeDetails(firstName, lastName, annualSalary, superRate);
         }
 
         public void OutputPayslip(Payslip payslip)

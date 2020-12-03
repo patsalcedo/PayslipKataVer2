@@ -27,6 +27,14 @@ namespace PayslipVer2
         
         public static TaxBracket GetTaxForAnnualSalary(int annualSalary)
         {
+            // foreach (var taxBracket in TaxBrackets)
+            // {
+            //     if (annualSalary > taxBracket.LowerTaxableIncomeBracket)
+            //     {
+            //         return taxBracket;
+            //     }
+            // }
+            // return new TaxBracket(0, 0, 0);
             return TaxBrackets.First(taxBracket => annualSalary > taxBracket.LowerTaxableIncomeBracket);
         }
     }

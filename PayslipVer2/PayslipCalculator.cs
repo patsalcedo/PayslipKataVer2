@@ -15,23 +15,17 @@ namespace PayslipVer2
         
         public String CalculatePayPeriod(string startDate, string endDate)
         {
-            // "1 March" "31 March"
             var defaultYear = 2020;
             var startDateSplit = startDate.Split(" ");
             var endDateSplit = endDate.Split(" ");
 
-            var month = DateTime.ParseExact(startDateSplit[1], "MMMM", CultureInfo.CurrentCulture).Month;
+            var monthFirstInput = DateTime.ParseExact(startDateSplit[1], "MMMM", CultureInfo.CurrentCulture).Month;
+            DateTime dateStart = new DateTime(defaultYear,monthFirstInput, int.Parse(startDateSplit[0]));
             
-            DateTime dateStart = new DateTime(defaultYear,month, int.Parse(startDateSplit[0])); // ends up as 1/1/0001
-                // DateTime.Parse(startDate); // 1/3/2020 (no year supplied so it assumes current year)
-            // DateTime dateEnd = DateTime.Parse(endDateSplit[1]); // 31/3/2020 (no year supplied so it assumes current year)
+            var monthSecondInput = DateTime.ParseExact(endDateSplit[1], "MMMM", CultureInfo.CurrentCulture).Month;
+            DateTime dateEnd = new DateTime(defaultYear,monthSecondInput, int.Parse(endDateSplit[0]));
             
-            // if (startDateSplit[1] == endDateSplit[1]) // check both same month
-            // {
-            //     
-            // }
-
-            return dateStart.Day.ToString();
+            return $"{dateStart:dd MMMM}" + " - " + $"{dateEnd:dd MMMM}";
         }
 
         public int CalculateGrossIncome(double annualSalary)

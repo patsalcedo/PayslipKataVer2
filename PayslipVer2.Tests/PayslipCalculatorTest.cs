@@ -29,7 +29,7 @@ namespace PayslipVer2.Tests
                 .CalculatePayPeriod("1 April","30 April");
 
             // THEN                                                  
-            Assert.Equal("1 April - 30 April", actual);
+            Assert.Equal("01 April - 30 April", actual);
         }
 
         [Theory]
