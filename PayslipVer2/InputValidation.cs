@@ -24,6 +24,11 @@ namespace PayslipVer2
                 Console.Write("Please input a valid integer: ");
                 value = Console.ReadLine();
             }
+            while (valueAsInt < 1)
+            {
+                Console.Write("Please input a valid positive integer: ");
+                valueAsInt = Convert.ToInt32(CheckInputIsNotNull());
+            }
             return valueAsInt;
         }
     }
