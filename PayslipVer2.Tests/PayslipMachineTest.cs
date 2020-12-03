@@ -9,7 +9,8 @@ namespace PayslipVer2.Tests
         
         public PayslipMachineTest()
         {
-            _inputOutputDouble = new InputOutputDouble(new EmployeeDetails("John","Doe", 60050, 9));
+            _inputOutputDouble = new InputOutputDouble(
+                new EmployeeDetails("John","Doe", 60050, 9, "1 March", "31 March"));
             _payslipMachine = new PayslipMachine(_inputOutputDouble);
         }
         [Fact]

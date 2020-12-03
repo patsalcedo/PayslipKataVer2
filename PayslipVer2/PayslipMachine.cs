@@ -15,6 +15,7 @@ namespace PayslipVer2
             var payslip = new Payslip();
             var payslipCalculator = new PayslipCalculator();
             payslip.FullName = payslipCalculator.JoinFirstAndLastNames(inputDetails.FirstName, inputDetails.LastName);
+            payslip.PayPeriod = payslipCalculator.CalculatePayPeriod(inputDetails.StartDate, inputDetails.EndDate);
             payslip.GrossIncome = payslipCalculator.CalculateGrossIncome(inputDetails.AnnualSalary);
             payslip.IncomeTax = payslipCalculator.CalculateIncomeTax(inputDetails.AnnualSalary);
             payslip.NetIncome = payslipCalculator.CalculateNetIncome(payslip.GrossIncome, payslip.IncomeTax);
